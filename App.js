@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text, View, Platform, StatusBar } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Platform, StatusBar } from 'react-native';
 import Header from './src/Header';
 import Content from './src/Content';
 import Navbar from './src/Navbar';
