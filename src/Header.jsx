@@ -1,28 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, Text, Dimensions, View } from 'react-native';
+import theme from '../theme';
 // import { Link, useLocation } from "react-router-dom";
 // import './header.css';
 
-const Header = () => {
+const Header = (props) => {
     
-    const [windowWidth, setWindowWidth] = useState(Dimensions.get('window').width);
-    const [windowHeight, setWindowHeight] = useState(Dimensions.get('window').height);
-
-    useEffect(() => {
-        const onChange = (result) => {
-            setWindowWidth(Dimensions.get('window').width);
-            setWindowHeight(Dimensions.get('window').height);
-        };
-    
-        Dimensions.addEventListener('change', onChange);
-      });
-
-
     return (
-        <View style={styles.header}>
-            {/* <Text>This is a header blablabla</Text> */}
-            <Text>Height: {windowHeight}</Text>
-            <Text>Width: {windowWidth}</Text>
+        <View style={[styles.header, {backgroundColor: theme[props.color][0]}]}>
+            <Text style={[styles.text, {color: theme[props.color][7]}]}>This is a header blablabla</Text>
         </View>
     )
 }
@@ -33,8 +19,11 @@ const styles = StyleSheet.create({
     header: {
         flex: 1,
         width: '100%',
-        backgroundColor: '#aaa',
+        backgroundColor: theme.blue[0],
         alignItems: 'center',
         justifyContent: 'center',
     },
-  });
+    text: {
+        color: theme.blue[7],
+    }
+});
