@@ -36,33 +36,33 @@ export default function App() {
 
 
   return (
-    // <ThemeContext.Provider value={color}>
-    //   <NavigationContainer>
-    //     <Stack.Navigator>
-    //       <Stack.Screen
-    //         name="Home"
-    //         component={Home}
-    //         // options={{
-    //         //   headerShown: false,
-    //         // }}
-    //       />
-    //       <Stack.Screen 
-    //         name="Settings" 
-    //         component={Settings}
-    //         options={{
-    //           headerShown: false
-    //         }} />
-    //     </Stack.Navigator>
-      <Fragment>
-        <SafeAreaView style={[styles.container, {backgroundColor: theme[color][7]}, {height: windowHeight}]}>
-          <Header color={color} onChange={handleColor} />
-          <Content color={color} onChange={handleColor} />
-          <Navbar color={color} onChange={handleColor} />
-        </SafeAreaView>
-        <StatusBar backgroundColor={theme[color][0]} barStyle='light-content' />
-      </Fragment>
-    //   </NavigationContainer>
-    // </ThemeContext.Provider>
+    <ThemeContext.Provider value={{color: color, handleColor: handleColor, height: windowHeight}}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen 
+            name="Settings" 
+            component={Settings}
+            options={{
+              headerShown: false
+            }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ThemeContext.Provider>
+      // <Fragment>
+      //   <SafeAreaView style={[styles.container, {backgroundColor: theme[color][7]}, {height: windowHeight}]}>
+      //     <Header color={color} />
+      //     <Content color={color} />
+      //     <Navbar color={color} onChange={handleColor} />
+      //   </SafeAreaView>
+      //   <StatusBar backgroundColor={theme[color][0]} barStyle='light-content' />
+      // </Fragment>
   );
 }
 

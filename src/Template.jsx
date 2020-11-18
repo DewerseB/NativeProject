@@ -11,7 +11,7 @@ import Navbar from '../Navbar';
 
 import { ThemeContext } from '../../App';
 
-const Settings = (props, { navigation }) => {
+const Home = (props, { navigation }) => {
 
     return (
     <ThemeContext.Consumer>
@@ -19,7 +19,7 @@ const Settings = (props, { navigation }) => {
             <Fragment>
                 <SafeAreaView style={[styles.container, {backgroundColor: theme[values.color][7]}, {height: values.height}]}>
                     <Header color={values.color} navigation={props.navigation}/>
-                    <Text>Settings</Text>
+                    <Text>Home</Text>
                     <Content color={values.color} />
                     <Navbar color={values.color} onChange={values.handleColor} />
                 </SafeAreaView>
@@ -30,7 +30,7 @@ const Settings = (props, { navigation }) => {
     );
 };
 
-export default Settings;
+export default Home;
 
 const styles = StyleSheet.create({
     content: {
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
+        height: '100%',
         width: '100%',
         backgroundColor: theme.blue[7],
         alignItems: 'center',
