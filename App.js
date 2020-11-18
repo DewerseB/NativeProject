@@ -1,25 +1,26 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, View, Platform, StatusBar } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, Platform, StatusBar } from 'react-native';
 import Header from './src/Header';
 import Content from './src/Content';
 import Navbar from './src/Navbar';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    // <View style={styles.container}>
       <SafeAreaView style={styles.container}>
         <Header />
         <Content />
         <Navbar />
       </SafeAreaView>
-      <StatusBar style="auto" />
-    </View>
+    //   <StatusBar style="auto" />
+    // </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // height: '100%',
     width: '100%',
     backgroundColor: '#fff',
     alignItems: 'center',
