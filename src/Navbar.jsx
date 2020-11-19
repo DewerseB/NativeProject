@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import theme from '../theme';
 
 const Navbar = (props) => {
+
+    const navigation = useNavigation();
 
     function handleColor(color) {
         props.onChange(color);
@@ -10,24 +13,26 @@ const Navbar = (props) => {
 
     return (
         <View style={[styles.navbar, {backgroundColor: theme[props.color][0]}]}>
-            {/* {Object.keys(theme).map((color) => {
-                return (
-                    <Button key={color} color={color} title={color} onPress={() => handleColor(color)} />
-                )
-            })} */}
             <Button
-            title="Home"
-            color={theme[props.color][3]}
-            onPress={() =>
-                props.navigation.navigate('Home', { name: 'Jane' })
-            }
+                title="Home"
+                color={theme[props.color][3]}
+                onPress={() =>
+                    navigation.navigate('Home', { name: 'Jane' })
+                }
             />
             <Button
-            title="Settings"
-            color={theme[props.color][3]}
-            onPress={() =>
-                props.navigation.navigate('Settings', { name: 'Jane' })
-            }
+                title="About"
+                color={theme[props.color][3]}
+                onPress={() =>
+                    navigation.navigate('About', { name: 'Jane' })
+                }
+            />
+            <Button
+                title="Settings"
+                color={theme[props.color][3]}
+                onPress={() =>
+                    navigation.navigate('Settings', { name: 'Jane' })
+                }
             />
         </View>
     )

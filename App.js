@@ -11,17 +11,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './src/screens/Home';
 import Settings from './src/screens/Settings';
 
+import * as Routes from './src/Routes';
+
 const Stack = createStackNavigator();
 export const ThemeContext = React.createContext('blue');
 
 export default function App() {
 
-  // const [windowWidth, setWindowWidth] = useState(Dimensions.get('window').width);
   const [windowHeight, setWindowHeight] = useState(Dimensions.get('window').height);
 
   useEffect(() => {
     const onResize = () => {
-        // setWindowWidth(Dimensions.get('window').width);
         setWindowHeight(Dimensions.get('window').height);
     };
 
@@ -42,14 +42,21 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen
             name="Home"
-            component={Home}
+            component={Routes.HomeRoute}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="About"
+            component={Routes.AboutRoute}
             options={{
               headerShown: false,
             }}
           />
           <Stack.Screen 
             name="Settings" 
-            component={Settings}
+            component={Routes.SettingsRoute}
             options={{
               headerShown: false
             }} />

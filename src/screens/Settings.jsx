@@ -1,38 +1,34 @@
 import React, { Fragment, useContext } from 'react';
-import { StyleSheet, SafeAreaView, StatusBar, ScrollView, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, Button } from 'react-native';
 import theme from '../../theme';
-
-import Header from '../Header';
-import Content from '../Content';
-import Navbar from '../Navbar';
 
 import { ThemeContext } from '../../App';
 
-const Settings = (props, { navigation }) => {
+const Settings = () => {
     
     const context = useContext(ThemeContext);
-
-    function handleColor(color) {
-        props.onChange(color);
-    }
     
     return (
         <Fragment>
-            <SafeAreaView style={[styles.container, {backgroundColor: theme[context.color][7]}, {height: context.height}]}>
-                <Header color={context.color} navigation={props.navigation}/>
-                <View style={[styles.content, {backgroundColor: theme[context.color][1]}]}>
-                    <ScrollView>
-                        <Text style={[styles.text, {color: theme[context.color][7]}]}>Settings</Text>
-                        {Object.keys(theme).map((color) => {
-                            return (
-                                <Button key={color} color={color} title={color} onPress={() => context.handleColor(color)} />
-                            )
-                        })}
-                    </ScrollView>
-                </View>
-                <Navbar color={context.color} navigation={props.navigation} />
-            </SafeAreaView>
-            <StatusBar backgroundColor={theme[context.color][0]} barStyle='light-content' />
+            <Text style={[styles.title, {color: theme[context.color][7]}]}>Settings</Text>
+            <View style={[styles.section, {backgroundColor: theme[context.color][2]}]}>
+                <Text style={[styles.text, {color: theme[context.color][7]}]}>Click on a color ramp below to change the theme of the app.</Text>
+                {Object.keys(theme).map((color) => {
+                    return (
+                        <View style={styles.touchContainer}>
+                            <TouchableHighlight onPress={() => context.handleColor(color)}>
+                                <View style={styles.rampContainer}>
+                                {Object.values(theme[color]).map((shade) => {
+                                    return (
+                                        <View key={shade} style={[{backgroundColor: shade}, {width: 24}, {height: 24}]}/>
+                                    )
+                                })}
+                                </View>
+                            </TouchableHighlight>
+                        </View>
+                    )
+                })}
+            </View>
         </Fragment>
     );
 };
@@ -40,21 +36,36 @@ const Settings = (props, { navigation }) => {
 export default Settings;
 
 const styles = StyleSheet.create({
-    content: {
-        flex: 8,
-        width: '100%',
-        backgroundColor: theme.blue[1],
+    title: {
+        // flex: 1,
+        padding: 18,
+        fontSize: 24,
+        color: theme.blue[7],
+        alignSelf: 'center',
+    },
+    section: {
+        flex: 4,
+        padding: 18,
+        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    touchContainer: {
+        flex: 1,
+        // width: '100%',
+        margin: 18,
+    },
+    rampContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        // width: 'fit-content',
+        borderColor: 'black',
+        borderWidth: 1,
     },
     text: {
+        padding: 18,
+        fontSize: 18,
         color: theme.blue[7],
-    },
-    container: {
-        flex: 1,
-        width: '100%',
-        backgroundColor: theme.blue[7],
-        alignItems: 'center',
-        justifyContent: 'center',
-      }
+        alignSelf: 'center',
+    }
   });

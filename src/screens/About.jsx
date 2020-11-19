@@ -6,18 +6,18 @@ import Content from '../Content';
 
 import { ThemeContext } from '../../App';
 
-const Home = () => {
+const About = () => {
 
     const context = useContext(ThemeContext);
 
     return (
         <Fragment>
-                <Content color={context.color} />
+                <Text>About</Text>
         </Fragment>
     );
 };
 
-export default Home;
+export default About;
 
 const styles = StyleSheet.create({
     content: {
