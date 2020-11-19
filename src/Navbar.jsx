@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Alert, Platform } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import theme from '../theme';
 
-const Navbar = (props, {navigation}) => {
+const Navbar = (props) => {
 
     function handleColor(color) {
         props.onChange(color);
