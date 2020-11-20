@@ -3,5 +3,5 @@
   "lang": "en",
   "name": "NativeProject",
   "short_name": "NativeProject",
-  "start_url": "NativeProject/?utm_source=web_app_manifest"
+  "start_url": "/?utm_source=web_app_manifest"
 }
