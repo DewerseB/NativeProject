@@ -1,3 +1,3 @@
 # NativeProject
 
-A web build demo is available [here](https://dewerseb.github.io/NativeProject/).
+A web build is available [here](https://dewerseb.github.io/NativeProject/).
