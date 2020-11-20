@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, Image, Button } from 'react-native';
 import theme from '../config/theme';
 import * as Language from '../config/language';
+
 
 const Settings = (props) => {
     
@@ -10,6 +11,20 @@ const Settings = (props) => {
             <Text style={[styles.title, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'title')}</Text>
             <View style={[styles.section, {backgroundColor: theme[props.color][2]}]}>
                 <Text style={[styles.text, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'languages')}</Text>
+                {Object.keys(Language.languages).map((language) => {
+                    return (
+                        <View key={language} style={styles.touchContainer}>
+                            <TouchableHighlight onPress={() => props.handleLanguage(language)}>
+                                <View style={styles.rampContainer}>
+                                <Image
+                                    style={[{width: 64}, {height: 32}]}
+                                    source={Language.getText(language, 'general', 'flag')}
+                                />
+                                </View>
+                            </TouchableHighlight>
+                        </View>
+                    )
+                })}
             </View>
             <View style={[styles.section, {backgroundColor: theme[props.color][2]}]}>
                 <Text style={[styles.text, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'colors')}</Text>

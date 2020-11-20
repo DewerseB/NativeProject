@@ -40,9 +40,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    text: {
-        color: theme.blue[7],
-    },
     container: {
         flex: 1,
         width: '100%',

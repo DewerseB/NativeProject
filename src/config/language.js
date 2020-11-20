@@ -1,8 +1,9 @@
-const languages = {
+export const languages = {
     english: {
-        // general: {
-
-        // },
+        general: {
+            name: 'English',
+            flag: require('../assets/flags/united-kingdom-flag-64.png'),
+        },
         home: {
             title: 'Home',
         },
@@ -16,6 +17,10 @@ const languages = {
         },
     },
     french: {
+        general: {
+            name: 'Français',
+            flag: require('../assets/flags/france-flag-64.png'),
+        },
         home: {
             title: 'Accueil',
         },
