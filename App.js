@@ -1,22 +1,19 @@
 import 'react-native-gesture-handler';
-import React, { Fragment, useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView, Dimensions, Platform, StatusBar } from 'react-native';
-import Header from './src/Header';
-import Content from './src/Content';
-import Navbar from './src/Navbar';
-import theme from './theme';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Dimensions } from 'react-native';
+import theme from './src/config/theme';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from './src/screens/Home';
-import Settings from './src/screens/Settings';
-
 import * as Routes from './src/Routes';
 
-const Stack = createStackNavigator();
-export const ThemeContext = React.createContext('blue');
+
+export const ThemeContext = React.createContext({height: Dimensions.get('window').height, color: 'blue'});
+export const LanguageContext = React.createContext({language: 'english'});
 
 export default function App() {
+
+  const Stack = createStackNavigator();
 
   const [windowHeight, setWindowHeight] = useState(Dimensions.get('window').height);
 
@@ -28,16 +25,21 @@ export default function App() {
     Dimensions.addEventListener('change', onResize);
   });
 
+  const [language, setLanguage] = useState('english');
+  
+  function handleLanguage(newLanguage) {
+    setLanguage(newLanguage);
+  };
 
   const [color, setColor] = useState('blue');
 
   function handleColor(newColor) {
     setColor(newColor);
-  }
-
+  };
 
   return (
-    <ThemeContext.Provider value={{color: color, handleColor: handleColor, height: windowHeight}}>
+    <LanguageContext.Provider value={{language: language, handleLanguage: handleLanguage}}>
+    <ThemeContext.Provider value={{height: windowHeight, color: color, handleColor: handleColor}}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
@@ -63,14 +65,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeContext.Provider>
-      // <Fragment>
-      //   <SafeAreaView style={[styles.container, {backgroundColor: theme[color][7]}, {height: windowHeight}]}>
-      //     <Header color={color} />
-      //     <Content color={color} />
-      //     <Navbar color={color} onChange={handleColor} />
-      //   </SafeAreaView>
-      //   <StatusBar backgroundColor={theme[color][0]} barStyle='light-content' />
-      // </Fragment>
+    </LanguageContext.Provider>
   );
 }
 

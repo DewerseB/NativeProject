@@ -1,30 +1,31 @@
 import React, { Fragment, useContext } from 'react';
 import { StyleSheet, SafeAreaView, StatusBar, ScrollView, Text, View, Button } from 'react-native';
-import theme from '../theme';
+import theme from './config/theme';
 
 import Header from './Header';
-import Content from './Content';
 import Navbar from './Navbar';
 
-import { ThemeContext } from '../App';
-import { useNavigation } from '@react-navigation/native';
+import { ThemeContext, LanguageContext } from '../App';
+
+// import { useNavigation } from '@react-navigation/native';
 
 const Template = (props) => {
 
-    const context = useContext(ThemeContext);
+    const contextTheme = useContext(ThemeContext);
+    const contextLanguage = useContext(LanguageContext);
 
     return (
         <Fragment>
-            <SafeAreaView style={[styles.container, {backgroundColor: theme[context.color][7]}, {height: context.height}]}>
-                <Header color={context.color} />
-                <View style={[styles.content, {backgroundColor: theme[context.color][1]}]}>
+            <SafeAreaView style={[styles.container, {backgroundColor: theme[contextTheme.color][7]}, {height: contextTheme.height}]}>
+                <Header color={contextTheme.color} />
+                <View style={[styles.content, {backgroundColor: theme[contextTheme.color][1]}]}>
                     <ScrollView>
-                        <props.screen />
+                        <props.screen color={contextTheme.color} handleColor={contextTheme.handleColor} language={contextLanguage.language} handleLanguage={contextLanguage.handleLanguage} />
                     </ScrollView>
                 </View>
-                <Navbar color={context.color} />
+                <Navbar color={contextTheme.color} language={contextLanguage.language} />
             </SafeAreaView>
-            <StatusBar backgroundColor={theme[context.color][0]} barStyle='light-content' />
+            <StatusBar backgroundColor={theme[contextTheme.color][0]} barStyle='light-content' />
         </Fragment>
     );
 };

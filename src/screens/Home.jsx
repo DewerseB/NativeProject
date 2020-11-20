@@ -1,23 +1,19 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import theme from '../../theme';
+import theme from '../config/theme';
 
 import Content from '../Content';
 
-import { ThemeContext } from '../../App';
-
-const Home = () => {
-
-    const context = useContext(ThemeContext);
+const Home = (props) => {
 
     return (
         <Fragment>
-                <Content color={context.color} />
+                <Content color={props.color} />
         </Fragment>
     );
 };
 
-export default Home;
+export { Home };
 
 const styles = StyleSheet.create({
     content: {

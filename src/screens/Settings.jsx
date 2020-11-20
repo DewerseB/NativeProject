@@ -1,22 +1,22 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Button } from 'react-native';
-import theme from '../../theme';
+import theme from '../config/theme';
+import * as Language from '../config/language';
 
-import { ThemeContext } from '../../App';
-
-const Settings = () => {
-    
-    const context = useContext(ThemeContext);
+const Settings = (props) => {
     
     return (
         <Fragment>
-            <Text style={[styles.title, {color: theme[context.color][7]}]}>Settings</Text>
-            <View style={[styles.section, {backgroundColor: theme[context.color][2]}]}>
-                <Text style={[styles.text, {color: theme[context.color][7]}]}>Click on a color ramp below to change the theme of the app.</Text>
+            <Text style={[styles.title, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'title')}</Text>
+            <View style={[styles.section, {backgroundColor: theme[props.color][2]}]}>
+                <Text style={[styles.text, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'languages')}</Text>
+            </View>
+            <View style={[styles.section, {backgroundColor: theme[props.color][2]}]}>
+                <Text style={[styles.text, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'colors')}</Text>
                 {Object.keys(theme).map((color) => {
                     return (
-                        <View style={styles.touchContainer}>
-                            <TouchableHighlight onPress={() => context.handleColor(color)}>
+                        <View key={color} style={styles.touchContainer}>
+                            <TouchableHighlight onPress={() => props.handleColor(color)}>
                                 <View style={styles.rampContainer}>
                                 {Object.values(theme[color]).map((shade) => {
                                     return (
@@ -33,7 +33,7 @@ const Settings = () => {
     );
 };
 
-export default Settings;
+export { Settings };
 
 const styles = StyleSheet.create({
     title: {
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     },
     section: {
         flex: 4,
+        margin: 18,
         padding: 18,
         backgroundColor: 'white',
         alignItems: 'center',

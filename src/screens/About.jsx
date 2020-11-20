@@ -1,14 +1,8 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import theme from '../../theme';
+import theme from '../config/theme';
 
-import Content from '../Content';
-
-import { ThemeContext } from '../../App';
-
-const About = () => {
-
-    const context = useContext(ThemeContext);
+const About = (props) => {
 
     return (
         <Fragment>
@@ -17,7 +11,7 @@ const About = () => {
     );
 };
 
-export default About;
+export { About };
 
 const styles = StyleSheet.create({
     content: {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, Text, View } from 'react-native';
-import theme from '../theme';
+import theme from './config/theme';
 // import { Link, useLocation } from "react-router-dom";
 // import './header.css';
 
