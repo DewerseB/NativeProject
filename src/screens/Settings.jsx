@@ -15,9 +15,9 @@ const Settings = (props) => {
                     return (
                         <View key={language} style={styles.touchContainer}>
                             <TouchableHighlight onPress={() => props.handleLanguage(language)}>
-                                <View style={styles.rampContainer}>
+                                <View>
                                 <Image
-                                    style={[{width: 64}, {height: 32}]}
+                                    style={[{width: 64}, {height: 43}]}
                                     source={Language.getText(language, 'general', 'flag')}
                                 />
                                 </View>
