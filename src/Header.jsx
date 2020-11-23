@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, Modal, Dimensions, View, TouchableHighlight, Button } from 'react-native';
-import theme from './config/theme';
+import * as Config from './config';
 // import { Link, useLocation } from "react-router-dom";
 // import './header.css';
 
 const Header = (props) => {
     return (
-        <View style={[styles.header, {backgroundColor: theme[props.color][0]}]}>
+        <View style={[styles.header, {backgroundColor: Config.getColor(props.color, 0)}]}>
             {/* {console.log(props)} */}
             {/* <Text style={[styles.text, {color: theme[props.color][7]}]}>This is a header blablabla</Text> */}
             
@@ -21,11 +21,11 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         width: '100%',
-        backgroundColor: theme.blue[0],
+        backgroundColor: Config.themes.blue[0],
         alignItems: 'center',
         justifyContent: 'space-evenly',
     },
     text: {
-        color: theme.blue[7],
+        color: Config.themes.blue[7],
     }
 });

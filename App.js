@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
-import theme from './src/config/theme';
+import * as Config from './src/config';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: theme.blue[7],
+    backgroundColor: Config.themes.blue[7],
     alignItems: 'center',
     justifyContent: 'center',
   }

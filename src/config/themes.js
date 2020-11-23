@@ -1,5 +1,5 @@
-export default {
-    // color: {
+export const themes = {
+    // name: {
     //     0: '#031721',
     //     1: '#0B2E3F',
     //     2: '#1F4B60',
@@ -38,7 +38,18 @@ export default {
         5: '#89AFC1',
         6: '#B8D1DD',
         7: '#F2F7F9',
-    }
+    },
+}
+
+export const getColor = (name, shade) => {
+    let color = (themes[name] !== undefined && themes[name][shade] !== undefined) 
+        ? themes[name][shade]
+        : (themes.blue[shade] !== undefined)
+            ? themes.blue[shade]
+            : (shade > 7)
+                ? themes.blue[7]
+                : themes.blue[0];
+    return color;
 }
 
 // 0 is the darkest, 7 the lightest

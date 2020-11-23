@@ -1,24 +1,23 @@
 import React, { Fragment } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Image, Button } from 'react-native';
-import theme from '../config/theme';
-import * as Language from '../config/language';
+import { StyleSheet, Text, View, TouchableHighlight, Image } from 'react-native';
 
+import * as Config from '../config';
 
 const Settings = (props) => {
     
     return (
         <Fragment>
-            <Text style={[styles.title, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'title')}</Text>
-            <View style={[styles.section, {backgroundColor: theme[props.color][2]}]}>
-                <Text style={[styles.text, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'languages')}</Text>
-                {Object.keys(Language.languages).map((language) => {
+            <Text style={[Config.styles.screenTitle, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'settings', 'title')}</Text>
+            <View style={[Config.styles.sectionView, {backgroundColor: Config.getColor(props.color, 2)}]}>
+                <Text style={[Config.styles.sectionText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'settings', 'languages')}</Text>
+                {Object.keys(Config.languages).map((language) => {
                     return (
                         <View key={language} style={styles.touchContainer}>
                             <TouchableHighlight onPress={() => props.handleLanguage(language)}>
                                 <View>
                                 <Image
                                     style={[{width: 64}, {height: 43}]}
-                                    source={Language.getText(language, 'general', 'flag')}
+                                    source={Config.getText(language, 'general', 'flag')}
                                 />
                                 </View>
                             </TouchableHighlight>
@@ -26,14 +25,14 @@ const Settings = (props) => {
                     )
                 })}
             </View>
-            <View style={[styles.section, {backgroundColor: theme[props.color][2]}]}>
-                <Text style={[styles.text, {color: theme[props.color][7]}]}>{Language.getText(props.language, 'settings', 'colors')}</Text>
-                {Object.keys(theme).map((color) => {
+            <View style={[Config.styles.sectionView, {backgroundColor: Config.getColor(props.color, 2)}]}>
+                <Text style={[Config.styles.sectionText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'settings', 'colors')}</Text>
+                {Object.keys(Config.themes).map((color) => {
                     return (
                         <View key={color} style={styles.touchContainer}>
                             <TouchableHighlight onPress={() => props.handleColor(color)}>
                                 <View style={styles.rampContainer}>
-                                {Object.values(theme[color]).map((shade) => {
+                                {Object.values(Config.themes[color]).map((shade) => {
                                     return (
                                         <View key={shade} style={[{backgroundColor: shade}, {width: 24}, {height: 24}]}/>
                                     )
@@ -51,37 +50,14 @@ const Settings = (props) => {
 export { Settings };
 
 const styles = StyleSheet.create({
-    title: {
-        // flex: 1,
-        padding: 18,
-        fontSize: 24,
-        color: theme.blue[7],
-        alignSelf: 'center',
-    },
-    section: {
-        flex: 4,
-        margin: 18,
-        padding: 18,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     touchContainer: {
         flex: 1,
-        // width: '100%',
         margin: 18,
     },
     rampContainer: {
         flex: 1,
         flexDirection: 'row',
-        // width: 'fit-content',
         borderColor: 'black',
         borderWidth: 1,
     },
-    text: {
-        padding: 18,
-        fontSize: 18,
-        color: theme.blue[7],
-        alignSelf: 'center',
-    }
-  });
+});
