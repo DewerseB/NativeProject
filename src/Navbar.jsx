@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Button, Text, Pressable } from 'react-native';
 import * as Config from './config';
 import * as Routes from './Routes';
 
@@ -34,6 +34,15 @@ const Navbar = (props) => {
                     }
                 />
             </View>
+            {/* <Pressable style={styles.button} onPress={() => Routes.mainNavigate('Home', { name: 'Test' })}>
+                <Text style={styles.text}>{Config.getText(props.language, 'home', 'title')}</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={() => Routes.mainNavigate('About', { name: 'Test' })}>
+                <Text style={styles.text}>{Config.getText(props.language, 'about', 'title')}</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={() => Routes.mainNavigate('Settings', { name: 'Test' })}>
+                <Text style={styles.text}>{Config.getText(props.language, 'settings', 'title')}</Text>
+            </Pressable> */}
         </View>
     )
 }
@@ -51,8 +60,11 @@ const styles = StyleSheet.create({
     },
     button: {
         width: 100,
+        backgroundColor: Config.themes.blue[3],
     },
     text: {
+        fontSize: 20,
         color: Config.themes.blue[7],
+        alignSelf: 'center',
     }
 });

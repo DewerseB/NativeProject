@@ -1,6 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+    screenView: {
+        flex: 1,
+        // minHeight: 1000,
+        width: '100%',
+        backgroundColor: '#0B2E3F',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // marginLeft: 300,
+    },
     screenTitle: {
         // flex: 1,
         padding: 18,
@@ -14,8 +23,9 @@ export const styles = StyleSheet.create({
         margin: 18,
         padding: 18,
         // width: '100%',
-        width: 300,
+        // width: 300,
         // height: 600,
+        minWidth: 300,
         maxWidth: 600,
         backgroundColor: '#1F4B60',
         alignItems: 'center',
