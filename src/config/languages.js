@@ -9,7 +9,7 @@ export const languages = {
         },
         about: {
             title: "About",
-            description: "This a React Native app. It features multiple pages with React Navigation and a Settings page allowing the user to configure the language and the colors of the app through the use of states, props and contexts.",
+            description: "This a React Native app. It features multiple screens with React Navigation and a settings screen allowing the user to configure the language and the colors of the app through the use of states, props and contexts.",
             more: "The app will default to english language and blue theme. As such this paragraph isn't translated and it uses a wrong theme name to showcase it.",
         },
         settings: {
@@ -28,11 +28,11 @@ export const languages = {
         },
         about: {
             title: "A propos",
-            description: "Ceci est une app React Native. Elle comporte plusieurs pages avec React Navigation et une page de paramètres permettant à l'utilisateur de configurer la langue et les couleurs de l'app grâce aux états, props et contextes.",
+            description: "Ceci est une app React Native. Elle comporte plusieurs écrans avec React Navigation et un écran d'options permettant à l'utilisateur de configurer la langue et les couleurs de l'app grâce aux états, props et contextes.",
             more: undefined,
         },
         settings: {
-            title: "Paramètres",
+            title: "Options",
             colors: "Couleurs de l'App",
             languages: "Langue",
         },

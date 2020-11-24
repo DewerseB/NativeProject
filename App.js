@@ -1,15 +1,12 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
-import * as Config from './src/config';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import * as Config from './src/config';
 import * as Routes from './src/Routes';
-
-
-export const ThemeContext = React.createContext({height: Dimensions.get('window').height, color: 'blue'});
-export const LanguageContext = React.createContext({language: 'english'});
+import { ThemeContext, LanguageContext } from './src/Contexts';
 
 export default function App() {
 

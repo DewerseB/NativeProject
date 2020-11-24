@@ -13,27 +13,33 @@ const Navbar = (props) => {
 
     return (
         <View style={[styles.navbar, {backgroundColor: Config.getColor(props.color, 0)}]}>
-            <Button
-                title={Config.getText(props.language, 'home', 'title')}
-                color={Config.getColor(props.color, 3)}
-                onPress={() =>
-                    navigation.navigate('Home', { name: 'Test' })
-                }
-            />
-            <Button
-                title={Config.getText(props.language, 'about', 'title')}
-                color={Config.getColor(props.color, 3)}
-                onPress={() =>
-                    navigation.navigate('About', { name: 'Test' })
-                }
-            />
-            <Button
-                title={Config.getText(props.language, 'settings', 'title')}
-                color={Config.getColor(props.color, 3)}
-                onPress={() =>
-                    navigation.navigate('Settings', { name: 'Test' })
-                }
-            />
+            <View style={styles.button}>
+                <Button
+                    title={Config.getText(props.language, 'home', 'title')}
+                    color={Config.getColor(props.color, 3)}
+                    onPress={() =>
+                        navigation.navigate('Home', { name: 'Test' })
+                    }
+                />
+            </View>
+            <View style={styles.button}>
+                <Button
+                    title={Config.getText(props.language, 'about', 'title')}
+                    color={Config.getColor(props.color, 3)}
+                    onPress={() =>
+                        navigation.navigate('About', { name: 'Test' })
+                    }
+                />
+            </View>
+            <View style={styles.button}>
+                <Button
+                    title={Config.getText(props.language, 'settings', 'title')}
+                    color={Config.getColor(props.color, 3)}
+                    onPress={() =>
+                        navigation.navigate('Settings', { name: 'Test' })
+                    }
+                />
+            </View>
         </View>
     )
 }
@@ -48,6 +54,9 @@ const styles = StyleSheet.create({
         backgroundColor: Config.themes.blue[0],
         alignItems: 'center',
         justifyContent: 'space-evenly',
+    },
+    button: {
+        width: 100,
     },
     text: {
         color: Config.themes.blue[7],

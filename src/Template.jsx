@@ -5,9 +5,7 @@ import * as Config from './config';
 import Header from './Header';
 import Navbar from './Navbar';
 
-import { ThemeContext, LanguageContext } from '../App';
-
-// import { useNavigation } from '@react-navigation/native';
+import { ThemeContext, LanguageContext } from './Contexts';
 
 const Template = (props) => {
 

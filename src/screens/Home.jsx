@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 import * as Config from '../config';
 
-import Content from '../Content';
-
 const Home = (props) => {
 
     return (
