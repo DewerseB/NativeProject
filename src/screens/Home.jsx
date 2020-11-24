@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import * as Config from '../config';
 
 const Home = (props) => {
 
     return (
-        <Fragment>
+        // <View style={[styles.mainView, {backgroundColor: Config.getColor(props.color, 1)}]}>
+          <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
             <Text style={[Config.styles.screenTitle, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'home', 'title')}</Text>
             <View style={[Config.styles.sectionView, {backgroundColor: Config.getColor(props.color, 2)}]}>
                 <Text style={[Config.styles.sectionText, {color: Config.getColor(props.color, 7)}]}>
@@ -17,11 +18,36 @@ const Home = (props) => {
                 Fusce tincidunt vehicula odio, in ullamcorper dui rhoncus vel. Pellentesque placerat tortor sit amet odio rhoncus tristique. Ut viverra ante quis tempor gravida. Suspendisse potenti. Nulla ac turpis eros. Etiam eros est, aliquet eu tincidunt et, laoreet non massa. Vestibulum in dolor libero. Pellentesque id rutrum lectus. Nunc ligula est, eleifend et bibendum non, mollis id purus. Donec et dignissim neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec egestas nulla mi, in tristique eros molestie mollis. Morbi porttitor tempus pellentesque. Quisque urna ex, accumsan quis commodo vitae, fermentum sed augue. Nunc vestibulum enim velit, at dignissim ligula interdum id. Cras id rhoncus dolor, sit amet ultrices lectus.
                 </Text>
             </View>
-        </Fragment>
+          </ScrollView>
+        // </View>
     );
 };
 
 export { Home };
 
 const styles = StyleSheet.create({
+    mainView: {
+      flex: 1,
+      width: '100%',
+      backgroundColor: Config.themes.blue[1],
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    scrollView: {
+      flex: 1,
+      width: '100%',
+      // backgroundColor: 'red',
+    },
+    scrollViewContent: {
+    //   flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      // width: '100%',
+    },
+    // test: {
+    //     flex: 1,
+    //     backgroundColor: 'red',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    // }
 });

@@ -1,7 +1,14 @@
 import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 import Template from './Template';
 import * as Screens from './screens/index';
+
+const mainNavRef = React.createRef();
+
+const mainNavigate = (name, params) => {
+    mainNavRef.current?.navigate(name, params);
+};
 
 const HomeRoute = () => {
     return (
@@ -20,9 +27,10 @@ const SettingsRoute = () => {
         <Template screen={Screens.Settings} />
     );
 };
-
 export {
     HomeRoute,
     AboutRoute,
     SettingsRoute,
+    mainNavRef,
+    mainNavigate,
 };

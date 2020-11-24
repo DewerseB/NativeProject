@@ -1,15 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, View, Button } from 'react-native';
 import * as Config from './config';
+import * as Routes from './Routes';
 
 const Navbar = (props) => {
-
-    const navigation = useNavigation();
-
-    function handleColor(color) {
-        props.onChange(color);
-    }
 
     return (
         <View style={[styles.navbar, {backgroundColor: Config.getColor(props.color, 0)}]}>
@@ -18,7 +12,7 @@ const Navbar = (props) => {
                     title={Config.getText(props.language, 'home', 'title')}
                     color={Config.getColor(props.color, 3)}
                     onPress={() =>
-                        navigation.navigate('Home', { name: 'Test' })
+                        Routes.mainNavigate('Home', { name: 'Test' })
                     }
                 />
             </View>
@@ -27,7 +21,7 @@ const Navbar = (props) => {
                     title={Config.getText(props.language, 'about', 'title')}
                     color={Config.getColor(props.color, 3)}
                     onPress={() =>
-                        navigation.navigate('About', { name: 'Test' })
+                        Routes.mainNavigate('About', { name: 'Test' })
                     }
                 />
             </View>
@@ -36,7 +30,7 @@ const Navbar = (props) => {
                     title={Config.getText(props.language, 'settings', 'title')}
                     color={Config.getColor(props.color, 3)}
                     onPress={() =>
-                        navigation.navigate('Settings', { name: 'Test' })
+                        Routes.mainNavigate('Settings', { name: 'Test' })
                     }
                 />
             </View>

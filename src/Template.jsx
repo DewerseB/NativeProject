@@ -1,9 +1,6 @@
 import React, { Fragment, useContext } from 'react';
-import { StyleSheet, SafeAreaView, StatusBar, ScrollView, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, StatusBar, ScrollView, View } from 'react-native';
 import * as Config from './config';
-
-import Header from './Header';
-import Navbar from './Navbar';
 
 import { ThemeContext, LanguageContext } from './Contexts';
 
@@ -14,16 +11,7 @@ const Template = (props) => {
 
     return (
         <Fragment>
-            <SafeAreaView style={[styles.safeArea, {backgroundColor: Config.getColor(contextTheme.color, 7)}, {height: contextTheme.height}]}>
-                <Header color={contextTheme.color} />
-                <View style={[styles.mainView, {backgroundColor: Config.getColor(contextTheme.color, 1)}]}>
-                    <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
-                        <props.screen color={contextTheme.color} handleColor={contextTheme.handleColor} language={contextLanguage.language} handleLanguage={contextLanguage.handleLanguage} />
-                    </ScrollView>
-                </View>
-                <Navbar color={contextTheme.color} language={contextLanguage.language} />
-            </SafeAreaView>
-            <StatusBar backgroundColor={Config.getColor(contextTheme.color, 0)} barStyle='light-content' />
+            <props.screen color={contextTheme.color} handleColor={contextTheme.handleColor} language={contextLanguage.language} handleLanguage={contextLanguage.handleLanguage} />
         </Fragment>
     );
 };

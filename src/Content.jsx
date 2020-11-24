@@ -7,9 +7,9 @@ import * as Config from './config';
 const Content = (props) => {
     
     return (
-        <View style={[styles.content, {backgroundColor: Config.themes[props.color][1]}]}>
+        <View style={[styles.content, {backgroundColor: Config.themes.blue[1]}]}>
             <ScrollView>
-                <Text style={[styles.text, {color: Config.themes[props.color][7]}]}>
+                <Text style={[styles.text, {color: Config.themes.blue[7]}]}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mollis est, iaculis euismod tortor molestie id. Quisque vel est volutpat, ullamcorper quam sed, tempus urna. Praesent placerat nec ligula id fermentum. Sed sit amet facilisis ante, ac euismod mauris. Cras ullamcorper risus sed magna tincidunt, vel commodo turpis convallis. Ut finibus nisi ipsum, quis consectetur diam facilisis nec. Donec volutpat pulvinar sollicitudin. Ut dignissim augue nisl, id pretium augue pharetra in. Ut augue libero, gravida at sem vitae, bibendum rhoncus tellus. Vivamus faucibus sapien a erat aliquam porta. Curabitur consectetur magna lorem, non semper quam eleifend quis. Vivamus metus dui, faucibus eget neque ac, accumsan luctus libero. Nullam rutrum orci at quam convallis rutrum et vitae ligula.
 
     Pellentesque ante felis, bibendum nec mi id, ornare mollis mauris. Suspendisse in nisl pulvinar, cursus enim sit amet, vulputate sapien. Donec condimentum molestie nisl, eu posuere ante sollicitudin a. Mauris elementum iaculis quam, nec pellentesque arcu porta id. Maecenas et arcu enim. Maecenas commodo ultrices elementum. Morbi quis finibus lectus.
