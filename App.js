@@ -9,6 +9,7 @@ import * as Routes from './src/Routes';
 import { ThemeContext, LanguageContext } from './src/Contexts';
 import Header from './src/Header';
 import Navbar from './src/Navbar';
+import './src/config/fontawesome';
 
 export default function App() {
 
@@ -40,7 +41,7 @@ export default function App() {
     <LanguageContext.Provider value={{language: language, handleLanguage: handleLanguage}}>
     <ThemeContext.Provider value={{height: windowHeight, color: color, handleColor: handleColor}}>
       <SafeAreaView style={[styles.safeArea, {backgroundColor: Config.getColor(color, 7)}, {height: windowHeight}]}>
-        <Header color={color} />
+        <Header color={color} language={language} />
         <View style={[styles.mainView, {backgroundColor: Config.getColor(color, 1)}]}>
           <NavigationContainer ref={Routes.mainNavRef}>
             <Stack.Navigator initialRouteName="Home">
@@ -54,6 +55,13 @@ export default function App() {
               <Stack.Screen
                 name="About"
                 component={Routes.AboutRoute}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="Login"
+                component={Routes.Login}
                 options={{
                   headerShown: false,
                 }}

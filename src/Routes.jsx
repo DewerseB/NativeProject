@@ -22,6 +22,12 @@ const AboutRoute = () => {
     )
 };
 
+const Login = () => {
+    return (
+        <Template screen={Screens.Login} />
+    );
+}
+
 const SettingsRoute = () => {
     return (
         <Template screen={Screens.Settings} />
@@ -30,6 +36,7 @@ const SettingsRoute = () => {
 export {
     HomeRoute,
     AboutRoute,
+    Login,
     SettingsRoute,
     mainNavRef,
     mainNavigate,
