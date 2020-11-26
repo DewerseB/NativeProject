@@ -17,8 +17,9 @@ export const languages = {
         },
         settings: {
             title: "Settings",
-            colors: "App colors",
+            login: "Login",
             languages: "Language",
+            colors: "App colors",
         },
     },
     french: {
@@ -39,8 +40,9 @@ export const languages = {
         },
         settings: {
             title: "Options",
-            colors: "Couleurs de l'App",
+            login: "Se connecter",
             languages: "Langue",
+            colors: "Couleurs de l'App",
         },
     },
 }

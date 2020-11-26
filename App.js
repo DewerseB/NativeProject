@@ -53,15 +53,15 @@ export default function App() {
                 }}
               />
               <Stack.Screen
-                name="About"
-                component={Routes.AboutRoute}
+                name="Login"
+                component={Routes.LoginRoute}
                 options={{
                   headerShown: false,
                 }}
               />
               <Stack.Screen
-                name="Login"
-                component={Routes.Login}
+                name="About"
+                component={Routes.AboutRoute}
                 options={{
                   headerShown: false,
                 }}
