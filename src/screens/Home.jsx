@@ -3,15 +3,15 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import * as Config from '../config';
 
-const Home = (props) => {
-
+const HomeTitle = (props) => {
     return (
-        <View style={[Config.styles.screenView, {backgroundColor: Config.getColor(props.color, 1)}]}>
-        {/* <Fragment> */}
-            <View style={[Config.styles.screenTitleContainer, {backgroundColor: Config.getColor(props.color, 0)}]}>
-                <Text style={[Config.styles.screenTitleText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'home', 'title')}</Text>
-            </View>
-            <View style={Config.styles.screenContentContainer}>
+        <Text style={[Config.styles.screenTitleText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'home', 'title')}</Text>
+    );
+};
+
+const Home = (props) => {
+    return (
+        <Fragment>
                 <View style={[Config.styles.sectionView, {backgroundColor: Config.getColor(props.color, 2)}]}>
                     <Text style={[Config.styles.sectionText, {color: Config.getColor(props.color, 7)}]}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mollis est, iaculis euismod tortor molestie id. Quisque vel est volutpat, ullamcorper quam sed, tempus urna. Praesent placerat nec ligula id fermentum. Sed sit amet facilisis ante, ac euismod mauris. Cras ullamcorper risus sed magna tincidunt, vel commodo turpis convallis. Ut finibus nisi ipsum, quis consectetur diam facilisis nec. Donec volutpat pulvinar sollicitudin. Ut dignissim augue nisl, id pretium augue pharetra in. Ut augue libero, gravida at sem vitae, bibendum rhoncus tellus. Vivamus faucibus sapien a erat aliquam porta. Curabitur consectetur magna lorem, non semper quam eleifend quis. Vivamus metus dui, faucibus eget neque ac, accumsan luctus libero. Nullam rutrum orci at quam convallis rutrum et vitae ligula.
@@ -21,13 +21,11 @@ const Home = (props) => {
                     Fusce tincidunt vehicula odio, in ullamcorper dui rhoncus vel. Pellentesque placerat tortor sit amet odio rhoncus tristique. Ut viverra ante quis tempor gravida. Suspendisse potenti. Nulla ac turpis eros. Etiam eros est, aliquet eu tincidunt et, laoreet non massa. Vestibulum in dolor libero. Pellentesque id rutrum lectus. Nunc ligula est, eleifend et bibendum non, mollis id purus. Donec et dignissim neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec egestas nulla mi, in tristique eros molestie mollis. Morbi porttitor tempus pellentesque. Quisque urna ex, accumsan quis commodo vitae, fermentum sed augue. Nunc vestibulum enim velit, at dignissim ligula interdum id. Cras id rhoncus dolor, sit amet ultrices lectus.
                     </Text>
                 </View>
-            </View>
-        {/* </Fragment> */}
-        </View>
+        </Fragment>
     );
 };
 
-export { Home };
+export { Home, HomeTitle };
 
 const styles = StyleSheet.create({
 });

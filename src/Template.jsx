@@ -11,9 +11,16 @@ const Template = (props) => {
 
     return (
         <ScrollView style={[styles.scrollView, {backgroundColor: Config.themes[contextTheme.color][1]}]} contentContainerStyle={styles.scrollViewContent} showsVerticalScrollIndicator={false}>
-            {/* <View style={[Config.styles.screenView, {backgroundColor: Config.getColor(contextTheme.color, 1)}]}> */}
-                <props.screen color={contextTheme.color} handleColor={contextTheme.handleColor} language={contextLanguage.language} handleLanguage={contextLanguage.handleLanguage} />
-            {/* </View> */}
+            <View style={[Config.styles.screenView, {backgroundColor: Config.getColor(contextTheme.color, 1)}]}>
+                {(props.title !== undefined) &&
+                <View style={[Config.styles.screenTitleContainer, {backgroundColor: Config.getColor(contextTheme.color, 0)}]}>
+                    <props.title color={contextTheme.color} language={contextLanguage.language} />
+                </View>
+                }
+                <View style={Config.styles.screenContentContainer}>
+                    <props.screen color={contextTheme.color} handleColor={contextTheme.handleColor} language={contextLanguage.language} handleLanguage={contextLanguage.handleLanguage} />
+                </View>
+            </View>
         </ScrollView>
     );
 };

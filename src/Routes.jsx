@@ -12,25 +12,25 @@ const mainNavigate = (name, params) => {
 
 const HomeRoute = () => {
     return (
-        <Template screen={Screens.Home} />
+        <Template screen={Screens.Home} title={Screens.HomeTitle} />
     );
 };
 
 const LoginRoute = () => {
     return (
-        <Template screen={Screens.Login} />
+        <Template screen={Screens.Login} title={Screens.AboutTitle} />
     );
 }
 
 const AboutRoute = () => {
     return (
-        <Template screen={Screens.About} />
+        <Template screen={Screens.About} title={Screens.LoginTitle} />
     )
 };
 
 const SettingsRoute = () => {
     return (
-        <Template screen={Screens.Settings} />
+        <Template screen={Screens.Settings} title={Screens.SettingsTitle} />
     );
 };
 export {

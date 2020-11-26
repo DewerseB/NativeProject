@@ -1,4 +1,4 @@
-export { Home } from './Home';
-export { Login } from './Login';
-export { About } from './About';
-export { Settings } from './Settings';
+export { Home, HomeTitle } from './Home';
+export { Login, LoginTitle } from './Login';
+export { About, AboutTitle } from './About';
+export { Settings, SettingsTitle } from './Settings';
