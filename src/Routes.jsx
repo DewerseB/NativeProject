@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import Template from './Template';
 import * as Screens from './screens/index';
@@ -9,9 +9,9 @@ export const mainNavigate = (name, params) => {
     mainNavRef.current?.navigate(name, params);
 };
 
-// export const getMainRoute = () => {
-//     return mainNavRef.current?.state;
-// }
+export const getMainRoute = () => {
+    return mainNavRef.current?.getCurrentRoute();
+}
 
 export const ProfileRoute = () => {
     return (

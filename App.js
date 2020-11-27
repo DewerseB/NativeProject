@@ -41,7 +41,7 @@ export default function App() {
     <LanguageContext.Provider value={{language: language, handleLanguage: handleLanguage}}>
     <ThemeContext.Provider value={{height: windowHeight, color: color, handleColor: handleColor}}>
       <SafeAreaView style={[styles.safeArea, {backgroundColor: Config.getColor(color, 7)}, {height: windowHeight}]}>
-        <Header color={color} language={language} />
+        <Header color={color} language={language} ref={Routes.mainNavRef} />
         <View style={[styles.mainView, {backgroundColor: Config.getColor(color, 1)}]}>
           <NavigationContainer ref={Routes.mainNavRef}>
             <Stack.Navigator initialRouteName="Home">
@@ -75,7 +75,7 @@ export default function App() {
             </Stack.Navigator>
           </NavigationContainer>
         </View>
-        <Navbar color={color} language={language} />
+        <Navbar color={color} language={language} onRef={Routes.mainNavRef} />
       </SafeAreaView>
       <StatusBar backgroundColor={Config.getColor(color, 0)} barStyle='light-content' />
     </ThemeContext.Provider>

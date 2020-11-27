@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import * as Config from '../config';
 import { Button3D } from '../components/Button3D';
+import * as Routes from '../Routes';
 
 const HomeTitle = (props) => {
     return (

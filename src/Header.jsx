@@ -1,16 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Pressable } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { StyleSheet, View } from 'react-native';
+// import { withNavigation } from 'react-navigation';
 
 import * as Config from './config';
 import * as Routes from './Routes';
 import { Button3D } from './components/Button3D';
 
 const Header = (props) => {
+    // console.log(props.onRef.current?.getCurrentRoute());
+    // console.log(Routes.mainState());
     return (
         <View style={[styles.header, {backgroundColor: Config.getColor(props.color, 0)}]}>
             <View style={styles.headerContent}>
             <Button3D color={props.color} language={props.language} height={44} width={44} type={'FA'} label={'user'} onPress={() => Routes.mainNavigate('Profile', { name: 'Test' })} />
+            <Button3D color={props.color} language={props.language} height={44} width={44} type={'FA'} label={'key'} onPress={() => console.log(Routes.getMainRoute())} />
             <Button3D color={props.color} language={props.language} height={44} width={44} type={'FA'} label={'cog'} onPress={() => Routes.mainNavigate('Settings', { name: 'Test' })} />
                 {/* <Pressable style={[Config.styles.buttonFA, {backgroundColor: Config.getColor(props.color, 3)}]} onPress={() => Routes.mainNavigate('Profile', { name: 'Test' })}>
                     <FontAwesomeIcon style={[Config.styles.iconFA, {color: Config.getColor(props.color, 7)}]} icon="user" size={24} />
