@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Animated, Text, Pressable } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import * as Config from '../config';
+import * as Routes from '../Routes';
 
 /**
  * 
@@ -17,6 +18,14 @@ import * as Config from '../config';
  */
 const Button3D = (props) => {
 
+    useEffect(() => {
+        const unsubscribe = Routes.mainNavRef.current?.addListener('state', () => {
+            (Routes.getRouteState(Routes.mainNavRef) !== undefined && Routes.getRouteState(Routes.mainNavRef).name !== props.route) && handleButtonUp();
+        });
+    
+        return unsubscribe;
+    });
+    
     const animation = new Animated.Value(0);
 
     const heightStyle = {
@@ -40,7 +49,7 @@ const Button3D = (props) => {
     const handleButtonDown = () => {
         Animated.timing(animation, {
             toValue: 1,
-            duration: 100,
+            duration: 250,
         }).start();
     };
 
@@ -52,7 +61,7 @@ const Button3D = (props) => {
     };
 
     return (
-        <Pressable onPressIn={handleButtonDown} onPressOut={handleButtonUp} onPress={props.onPress}>
+        <Pressable onPressIn={handleButtonDown} onPress={() => (props.route !== undefined) ? Routes.mainNavigate(props.route, { name: 'Test' }) : props.onPress}>
             <View style={[styles.container, {height: props.height}, {width: props.width}]}>
                 <Animated.View style={[styles.base, baseStyle]}>
                     <Animated.View style={[styles.height, heightStyle]}>

@@ -15,6 +15,8 @@ export default function App() {
 
   const Stack = createStackNavigator();
 
+  const [mainRouteState, setMainRouteState] = useState(Routes.getRouteState(Routes.mainNavRef));
+
   const [windowHeight, setWindowHeight] = useState(Dimensions.get('window').height);
 
   useEffect(() => {
@@ -22,7 +24,13 @@ export default function App() {
         setWindowHeight(Dimensions.get('window').height);
     };
 
+    const onScreenChange = () => {
+      setMainRouteState(Routes.getRouteState(Routes.mainNavRef));
+    };
+
     Dimensions.addEventListener('change', onResize);
+    
+    // Routes.addStateListener(Routes.mainNavRef, onScreenChange);
   });
 
   const [language, setLanguage] = useState('english');
@@ -41,7 +49,7 @@ export default function App() {
     <LanguageContext.Provider value={{language: language, handleLanguage: handleLanguage}}>
     <ThemeContext.Provider value={{height: windowHeight, color: color, handleColor: handleColor}}>
       <SafeAreaView style={[styles.safeArea, {backgroundColor: Config.getColor(color, 7)}, {height: windowHeight}]}>
-        <Header color={color} language={language} ref={Routes.mainNavRef} />
+        <Header color={color} language={language} ref={Routes.mainNavRef} mainRouteState={mainRouteState} />
         <View style={[styles.mainView, {backgroundColor: Config.getColor(color, 1)}]}>
           <NavigationContainer ref={Routes.mainNavRef}>
             <Stack.Navigator initialRouteName="Home">

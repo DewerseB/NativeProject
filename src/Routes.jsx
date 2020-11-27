@@ -9,8 +9,12 @@ export const mainNavigate = (name, params) => {
     mainNavRef.current?.navigate(name, params);
 };
 
-export const getMainRoute = () => {
-    return mainNavRef.current?.getCurrentRoute();
+export const getRouteState = (ref) => {
+    return ref.current?.getCurrentRoute();
+}
+
+export const addStateListener = (ref, onChange) => {
+    ref.current?.addListener('state', onChange);
 }
 
 export const ProfileRoute = () => {

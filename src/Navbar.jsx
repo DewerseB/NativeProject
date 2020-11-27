@@ -10,8 +10,8 @@ const Navbar = (props) => {
     return (
         <View style={[styles.navbar, {backgroundColor: Config.getColor(props.color, 0)}]}>
             <View style={styles.navbarContent}>
-                <Button3D color={props.color} language={props.language} height={44} width={88} type={'text'} label={Config.getText(props.language, 'home', 'title').toUpperCase()} onPress={() => Routes.mainNavigate('Home', { name: 'Test' })} />
-                <Button3D color={props.color} language={props.language} height={44} width={88} type={'text'} label={Config.getText(props.language, 'about', 'title').toUpperCase()} onPress={() => Routes.mainNavigate('About', { name: 'Test' })} />
+                <Button3D color={props.color} language={props.language} height={44} width={88} type={'text'} label={Config.getText(props.language, 'home', 'title').toUpperCase()} route={'Home'} onPress={() => Routes.mainNavigate('Home', { name: 'Test' })} />
+                <Button3D color={props.color} language={props.language} height={44} width={88} type={'text'} label={Config.getText(props.language, 'about', 'title').toUpperCase()} route={'About'} onPress={() => Routes.mainNavigate('About', { name: 'Test' })} />
                 {/* <Pressable style={[Config.styles.button, {backgroundColor: Config.getColor(props.color, 3)}]} onPress={() => Routes.mainNavigate('Home', { name: 'Test' })}>
                     <Text style={[Config.styles.buttonText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'home', 'title').toUpperCase()}</Text>
                 </Pressable> */}
