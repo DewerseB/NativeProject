@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StyleSheet, ScrollView, View, Text } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import * as Config from './config';
 
 import { ThemeContext, LanguageContext } from './Contexts';

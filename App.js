@@ -46,15 +46,15 @@ export default function App() {
           <NavigationContainer ref={Routes.mainNavRef}>
             <Stack.Navigator initialRouteName="Home">
               <Stack.Screen
-                name="Home"
-                component={Routes.HomeRoute}
+                name="Profile"
+                component={Routes.ProfileRoute}
                 options={{
                   headerShown: false,
                 }}
               />
               <Stack.Screen
-                name="Login"
-                component={Routes.LoginRoute}
+                name="Home"
+                component={Routes.HomeRoute}
                 options={{
                   headerShown: false,
                 }}
@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     backgroundColor: Config.themes.blue[7],
+    overflow: 'hidden',
     // alignItems: 'center',
     // justifyContent: 'center',
   },

@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from 'react';
-import { StyleSheet, View, Text, Pressable, TextInput, TouchableHighlight, Image } from 'react-native';
+import React, { Fragment } from 'react';
+import { StyleSheet, View, Text, TouchableHighlight, Image } from 'react-native';
 
 import * as Config from '../config';
 
@@ -10,34 +10,9 @@ const SettingsTitle = (props) => {
 };
 
 const Settings = (props) => {
-
-    const [login, setLogin] = useState('');
-    const [pass, setPass] = useState('');
     
     return (
         <Fragment>
-            <View style={[Config.styles.sectionView, {backgroundColor: Config.getColor(props.color, 2)}]}>
-                <View style={Config.styles.sectionTitleContainer}>
-                    <Text style={[Config.styles.sectionTitleText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'settings', 'login')}</Text>
-                </View>
-                <View style={Config.styles.sectionContentContainer}>
-                    <TextInput
-                        style={Config.styles.formField}
-                        placeholder="Login"
-                        onChangeText={text => setLogin(text)}
-                        defaultValue={login}
-                    />
-                    <TextInput
-                        style={Config.styles.formField}
-                        placeholder="Password"
-                        onChangeText={text => setPass(text)}
-                        defaultValue={pass}
-                    />
-                    <Pressable style={[Config.styles.button, {backgroundColor: Config.getColor(props.color, 3)}]} onPress={() => alert(login)}>
-                        <Text style={[Config.styles.buttonText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'login', 'title').toUpperCase()}</Text>
-                    </Pressable>
-                </View>
-            </View>
             <View style={[Config.styles.sectionView, {backgroundColor: Config.getColor(props.color, 2)}]}>
                 <View style={Config.styles.sectionTitleContainer}>
                     <Text style={[Config.styles.sectionTitleText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'settings', 'languages')}</Text>

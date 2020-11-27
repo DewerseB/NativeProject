@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, Pressable, Dimensions, View, TouchableHighlight, Button } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Pressable } from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+
 import * as Config from './config';
 import * as Routes from './Routes';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-// import { Link, useLocation } from "react-router-dom";
-// import './header.css';
+import { Button3D } from './components/Button3D';
 
 const Header = (props) => {
     return (
         <View style={[styles.header, {backgroundColor: Config.getColor(props.color, 0)}]}>
             <View style={styles.headerContent}>
-                {/* <Pressable style={[Config.styles.button, {backgroundColor: Config.getColor(props.color, 3)}]} onPress={() => Routes.mainNavigate('Login', { name: 'Test' })}>
-                    <Text style={[Config.styles.buttonText, {color: Config.getColor(props.color, 7)}]}>{Config.getText(props.language, 'login', 'title').toUpperCase()}</Text>
-                </Pressable> */}
+            <Button3D color={props.color} language={props.language} height={44} width={44} type={'FA'} label={'user'} onPress={() => Routes.mainNavigate('Profile', { name: 'Test' })} />
+            <Button3D color={props.color} language={props.language} height={44} width={44} type={'FA'} label={'cog'} onPress={() => Routes.mainNavigate('Settings', { name: 'Test' })} />
+                {/* <Pressable style={[Config.styles.buttonFA, {backgroundColor: Config.getColor(props.color, 3)}]} onPress={() => Routes.mainNavigate('Profile', { name: 'Test' })}>
+                    <FontAwesomeIcon style={[Config.styles.iconFA, {color: Config.getColor(props.color, 7)}]} icon="user" size={24} />
+                </Pressable>
                 <Pressable style={[Config.styles.buttonFA, {backgroundColor: Config.getColor(props.color, 3)}]} onPress={() => Routes.mainNavigate('Settings', { name: 'Test' })}>
                     <FontAwesomeIcon style={[Config.styles.iconFA, {color: Config.getColor(props.color, 7)}]} icon="cog" size={24} />
-                </Pressable>
+                </Pressable> */}
             </View>
         </View>
     )
@@ -31,16 +33,17 @@ const styles = StyleSheet.create({
         backgroundColor: Config.themes.blue[0],
         alignItems: 'center',
         justifyContent: 'center',
-        overflow: 'hidden',
+        // overflow: 'hidden',
     },
     headerContent: {
         flex: 1,
         flexDirection: 'row',
+        // position: 'relative',
+        // top: 5,
         minWidth: 300,
         maxWidth: 864,
         alignItems: 'center',
-        justifyContent: 'flex-end',
-        // backgroundColor: 'red',
+        justifyContent: 'space-between',
         marginHorizontal: 18,
     }
 });

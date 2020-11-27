@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+
+    // Screens styles
     screenView: {
         flex: 1,
-        // minHeight: 1000,
         width: '100%',
         backgroundColor: '#0B2E3F',
         alignItems: 'center',
         justifyContent: 'center',
-        // marginLeft: 300,
     },
     screenTitleContainer: {
         flex: 1,
@@ -23,13 +23,8 @@ export const styles = StyleSheet.create({
         borderBottomRightRadius: 10,
     },
     screenTitleText: {
-        // flex: 1,
-        // paddingVertical: 6,
-        // paddingHorizontal: 18,
         fontSize: 24,
         color: '#F2F7F9',
-        // alignSelf: 'center',
-        // backgroundColor: 'green',
     },
     screenContentContainer: {
         flex: 9,
@@ -38,20 +33,20 @@ export const styles = StyleSheet.create({
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'center',
-        // backgroundColor: 'red',
     },
+
+    // Sections styles
     sectionView: {
         flex: 4,
         margin: 18,
         padding: 18,
         minHeight: 300,
         minWidth: 300,
-        // maxWidth: 600,
         backgroundColor: '#1F4B60',
         alignItems: 'center',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         borderRadius: 10,
-        // justifyContent: 'center',
+        justifyContent: 'center',
     },
     sectionTitleContainer: {
         flex: 2,
@@ -66,9 +61,6 @@ export const styles = StyleSheet.create({
     },
     sectionTitleText: {
         fontSize: 20,
-        // maxHeight: 80,
-        // minWidth: 160,
-        // textAlign: 'center',
         color: '#F2F7F9',
     },
     sectionContentContainer: {
@@ -77,12 +69,11 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
     },
     sectionText: {
-        // flex: 1,
-        // padding: 9,
         fontSize: 18,
         color: '#F2F7F9',
-        // alignSelf: 'center',
     },
+
+    // Pressables styles
     buttonFA: {
         flex: 1,
         minHeight: 40,
@@ -115,10 +106,13 @@ export const styles = StyleSheet.create({
         color: '#F2F7F9',
         alignSelf: 'center',
     },
+
+    // Others
     formField: {
         // flex: 1,
         height: 40,
         width: 200,
+        fontSize: 18,
         textAlign: 'center',
         color: '#031721',
         backgroundColor: '#F2F7F9',
